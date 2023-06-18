@@ -1,0 +1,54 @@
+<p-panel header="Pipes poco usados" class="p-2">
+    <p>
+        Pipes incluidos en Angular - Usualmente en el CommonModule
+    </p>
+</p-panel>
+
+<div class="grid">
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
+            <p>Saludos {{ name }}, es un placer {{ gender | i18nSelect:map }} a nuestro evento</p>
+            <p-button 
+             (click)="changeClient()"
+             label="Cambiar persona">
+            </p-button>
+        </p-fieldset>
+    </div>
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
+            <p>Actualmente tenemos {{ clientes.length | i18nPlural:clientMap }}</p>
+            <p-button 
+             (click)="finalizarTurno()"
+             label="Finalizar Turno">
+            </p-button>            
+        </p-fieldset>
+    </div>
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="Slice Pipe" [toggleable]="true">
+            <b>Original</b>
+            <pre>{{ clientes }}</pre>
+            <b>slice:0:2</b>
+            <pre>{{ clientes | slice:0:2 }}</pre>
+        </p-fieldset>
+    </div>      
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="Json Pipe" [toggleable]="true">
+            <pre>{{ clientes | json }}</pre>
+        </p-fieldset>
+    </div>
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="KeyValue Pipe" [toggleable]="true">
+            <ul>
+                <li *ngFor="let item of persona | keyvalue">
+                    <b>{{item.key | titlecase }}</b>: {{ item.value }}
+                </li>
+            </ul>
+        </p-fieldset>        
+    </div>    
+    <p-fieldset legend="Async Pipe" [toggleable]="true">
+        <pre *ngIf="!(timer | async)">{{ timer | async }}Resolviendo Observable</pre>
+        <pre>{{ timer | async }}</pre>
+        <pre *ngIf="!(promiseValue | async)">{{ promiseValue | async }}Resolviendo Promesa</pre>
+        <pre>{{ timer | async }}</pre>        
+    </p-fieldset>      
+</div>
