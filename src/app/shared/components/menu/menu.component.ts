@@ -7,7 +7,7 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
- 
+
   private items:MenuItem[] = [];
 
   get getMenuItems():MenuItem[] {
@@ -33,12 +33,19 @@ export class MenuComponent implements OnInit {
               label: 'No comunes',
               icon: 'pi pi-globe',
               routerLink: '/uncommon'
-            },                        
-          ] 
+            },
+          ]
       },
       {
         label: 'Pipes Personalizados',
-        icon: 'pi pi-cog'
+        icon: 'pi pi-cog',
+        items: [
+          {
+            label: 'Custom Pipes',
+            icon: 'pi pi-cog',
+            routerLink: 'custom'
+          }
+        ]
       }
     ];
   }
